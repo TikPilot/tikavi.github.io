@@ -1,26 +1,187 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TDK0VYBQL6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-TDK0VYBQL6');
+  </script>
+
   <title>TikAvi — Cross-border TikTok Shop Agency</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 60px;
-      text-align: center;
-    }
-    h1 {
-      font-size: 40px;
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 20px;
-      color: #555;
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <h1>TikAvi Official Website</h1>
-  <p>跨境 TikTok Shop 轻代运营 + 自动化系统</p>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container nav-container">
+      <div class="logo">TikAvi</div>
+      <div class="nav-right">
+        <div class="lang-switch">
+          <button class="lang-btn active" data-lang="zh">中</button>
+          <span class="divider">/</span>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a href="mailto:tikavi2048@gmail.com" class="btn btn-sm" data-i18n="nav_contact">联系我们</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container">
+      <h1 class="glitch" data-text="TikAvi" data-i18n="hero_headline">让中国商家在美国与日本 TikTok 轻松起飞</h1>
+      <p class="subheadline" data-i18n="hero_subheadline">
+        TikAvi 为跨境商家提供 <span class="highlight">高端轻代运营 + 自动化增长系统</span>，<br>
+        覆盖店铺开通、商品上架、达人推广与数据增长，<br>
+        帮助你的品牌快速在 TikTok 赢得销量与市场。
+      </p>
+
+      <div class="value-bullets">
+        <div class="bullet-item">
+          <span class="icon">🇺🇸🇯🇵</span>
+          <span data-i18n="hero_bullet_1">美国 & 日本 TikTok Shop 全托管</span>
+        </div>
+        <div class="bullet-item">
+          <span class="icon">⚡</span>
+          <span data-i18n="hero_bullet_2">高端轻代运营：更省、效率更高</span>
+        </div>
+        <div class="bullet-item">
+          <span class="icon">🤝</span>
+          <span data-i18n="hero_bullet_3">达人推广系统化管理</span>
+        </div>
+        <div class="bullet-item">
+          <span class="icon">🤖</span>
+          <span data-i18n="hero_bullet_4">自动化工具降低成本、提升增长</span>
+        </div>
+        <div class="bullet-item">
+          <span class="icon">📈</span>
+          <span data-i18n="hero_bullet_5">专业策略团队打造可复制增长模型</span>
+        </div>
+      </div>
+
+      <div class="cta-container">
+        <a href="mailto:tikavi2048@gmail.com" class="btn btn-lg" data-i18n="hero_cta">预约免费咨询 →</a>
+      </div>
+    </div>
+    <div class="hero-bg-effect"></div>
+  </header>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="container">
+      <h2 class="section-title"><span data-i18n="features_title">核心功能模块</span> <span
+          class="text-gradient">Features</span></h2>
+
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card">
+          <div class="card-icon">🌏</div>
+          <h3 data-i18n="feature_1_title">跨境 TikTok 店铺开通</h3>
+          <p class="feature-desc" data-i18n="feature_1_desc">一站式解决资料、审核、税务、收款等复杂流程。</p>
+          <ul class="feature-list">
+            <li data-i18n="feature_1_list_1">TikAvi 负责为你开设美国与日本 TikTok Shop</li>
+            <li data-i18n="feature_1_list_2">确保店铺安全稳健上线</li>
+            <li data-i18n="feature_1_list_3">避免不必要的风险与延误</li>
+          </ul>
+          <div class="card-footer" data-i18n="feature_1_footer">你需要做的只是一件事：提供基础信息，我们帮你搞定全部流程。</div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <div class="card-icon">✨</div>
+          <h3 data-i18n="feature_2_title">商品上架与内容优化</h3>
+          <p class="feature-desc" data-i18n="feature_2_desc">高标准 Listing，让你的产品在 TikTok 更容易被发现与购买。</p>
+          <ul class="feature-list">
+            <li data-i18n="feature_2_list_1">英文/日文标题 SEO 生成</li>
+            <li data-i18n="feature_2_list_2">商品描述优化</li>
+            <li data-i18n="feature_2_list_3">标签 & 类目配置</li>
+            <li data-i18n="feature_2_list_4">SKU 结构搭建</li>
+            <li data-i18n="feature_2_list_5">主图/视频合规检查</li>
+          </ul>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <div class="card-icon">🔥</div>
+          <h3 data-i18n="feature_3_title">达人推广 (Affiliate Engine)</h3>
+          <p class="feature-desc" data-i18n="feature_3_desc">全流程达人合作体系，让内容驱动 GMV 成为可复制能力。</p>
+          <ul class="feature-list">
+            <li data-i18n="feature_3_list_1">达人筛选 & 批量推品</li>
+            <li data-i18n="feature_3_list_2">佣金策略建议</li>
+            <li data-i18n="feature_3_list_3">样品管理</li>
+            <li data-i18n="feature_3_list_4">达人带货效果跟踪</li>
+          </ul>
+          <div class="card-footer" data-i18n="feature_3_footer">借助 TikAvi 的自动化推品系统，你的产品可以同时触达数百名海外达人。</div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card highlight-card">
+          <div class="card-icon">🚀</div>
+          <h3 data-i18n="feature_4_title">TikAvi OS (自动化增长系统)</h3>
+          <p class="feature-desc" data-i18n="feature_4_desc">TikAvi 的核心竞争力来自技术能力。</p>
+          <ul class="feature-list">
+            <li data-i18n="feature_4_list_1"><strong>Listing AutoGen:</strong> 自动生成标题、描述与关键词</li>
+            <li data-i18n="feature_4_list_2"><strong>Affiliate Push Engine:</strong> 自动向达人推品</li>
+            <li data-i18n="feature_4_list_3"><strong>Insights Board:</strong> 实时监控关键指标</li>
+            <li data-i18n="feature_4_list_4"><strong>Auto-SOP Scheduler:</strong> 自动提醒运营节点</li>
+            <li data-i18n="feature_4_list_5"><strong>Report Builder:</strong> 自动生成日报/周报</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why TikAvi Section -->
+  <section class="why-us">
+    <div class="container">
+      <h2 class="section-title" data-i18n="why_title">Why TikAvi?</h2>
+      <div class="why-grid">
+        <div class="why-item">
+          <h4 data-i18n="why_1_title">✔ 专注美国 & 日本</h4>
+          <p data-i18n="why_1_desc">深入研究平台机制、达人生态与增长模型。</p>
+        </div>
+        <div class="why-item">
+          <h4 data-i18n="why_2_title">✔ 轻代运营模式</h4>
+          <p data-i18n="why_2_desc">相比传统代运营，TikAvi 更关注效率 + 技术驱动，成本更优。</p>
+        </div>
+        <div class="why-item">
+          <h4 data-i18n="why_3_title">✔ 自动化增长</h4>
+          <p data-i18n="why_3_desc">所有 SOP 会逐步进入自动化系统，让你的生意更稳、更快。</p>
+        </div>
+        <div class="why-item">
+          <h4 data-i18n="why_4_title">✔ 数据驱动</h4>
+          <p data-i18n="why_4_desc">每个决策基于真实数据，而非拍脑袋。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <h2 data-i18n="footer_title">Ready to Fly?</h2>
+        <a href="mailto:tikavi2048@gmail.com" class="btn" data-i18n="footer_cta">立即预约咨询</a>
+        <p class="contact-email">tikavi2048@gmail.com</p>
+        <p class="copyright">© 2025 TikAvi. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
