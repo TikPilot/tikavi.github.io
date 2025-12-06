@@ -42,7 +42,8 @@
   <!-- Hero Section -->
   <header class="hero">
     <div class="container">
-      <h1 class="glitch" data-text="TikAvi" data-i18n="hero_headline">让中国商家在美国与日本 TikTok 轻松起飞</h1>
+      <h1 class="glitch" data-text="TikAvi">TikAvi</h1>
+      <h2 class="headline-slogan" data-i18n="hero_headline">让中国商家在美国与日本 TikTok 轻松起飞</h2>
       <p class="subheadline" data-i18n="hero_subheadline">
         TikAvi 为跨境商家提供 <span class="highlight">高端轻代运营 + 自动化增长系统</span>，<br>
         覆盖店铺开通、商品上架、达人推广与数据增长，<br>
@@ -180,6 +181,39 @@
       </div>
     </div>
   </footer>
+
+  <!-- Contact Modal -->
+  <div class="modal-overlay" id="contactModal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <h2 data-i18n="modal_title">预约免费咨询</h2>
+      <p class="modal-subtitle" data-i18n="modal_subtitle">填写下方信息，我们将在 24 小时内与你联系。</p>
+
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name" data-i18n="form_name">姓名</label>
+          <input type="text" id="name" required placeholder="Your Name">
+        </div>
+
+        <div class="form-group">
+          <label for="contact" data-i18n="form_contact">联系方式 (微信/Email/WhatsApp)</label>
+          <input type="text" id="contact" required placeholder="WeChat ID / Email">
+        </div>
+
+        <div class="form-group">
+          <label for="company" data-i18n="form_company">公司/品牌名称</label>
+          <input type="text" id="company" placeholder="Company Name">
+        </div>
+
+        <div class="form-group">
+          <label for="message" data-i18n="form_message">咨询内容 (选填)</label>
+          <textarea id="message" rows="4" placeholder="How can we help you?"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-block" data-i18n="form_submit">提交申请</button>
+      </form>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

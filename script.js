@@ -122,7 +122,7 @@ function switchLanguage(lang) {
             btn.classList.add('active');
         }
     });
-    
+
     // Update html lang attribute
     document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
 
@@ -138,11 +138,62 @@ document.addEventListener('DOMContentLoaded', () => {
 
     switchLanguage(initialLang);
 
-    // Add event listeners to buttons
+    // Add event listeners to language buttons
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const lang = btn.getAttribute('data-lang');
             switchLanguage(lang);
         });
     });
+
+    // Modal Logic
+    const modal = document.getElementById('contactModal');
+    const modalClose = document.getElementById('modalClose');
+    const contactForm = document.getElementById('contactForm');
+    const consultationBtns = document.querySelectorAll('a[href^="mailto:"]');
+
+    // Attach click event to all consultation buttons
+    consultationBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.classList.add('active');
+        });
+    });
+
+    // Close modal
+    if (modalClose) {
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+    }
+
+    // Close on click outside
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+    }
+
+    // Form Submission (Mailto Fallback)
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const contact = document.getElementById('contact').value;
+            const company = document.getElementById('company').value;
+            const message = document.getElementById('message').value;
+
+            const subject = `TikAvi Consultation Request - ${name}`;
+            const body = `Name: ${name}%0D%0AContact: ${contact}%0D%0ACompany: ${company}%0D%0AMessage: ${message}%0D%0A%0D%0ASent via TikAvi.com`;
+
+            window.location.href = `mailto:tikavi2048@gmail.com?subject=${subject}&body=${body}`;
+
+            // Optional: Show success state or close modal
+            modal.classList.remove('active');
+            alert("Thanks! Your default email client should open now. Please hit send.");
+        });
+    }
 });
