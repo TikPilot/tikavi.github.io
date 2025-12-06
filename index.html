@@ -189,15 +189,20 @@
       <h2 data-i18n="modal_title">预约免费咨询</h2>
       <p class="modal-subtitle" data-i18n="modal_subtitle">填写下方信息，我们将在 24 小时内与你联系。</p>
 
-      <form id="contactForm">
+      <form id="contactForm" action="https://formspree.io/f/xanrbgzl" method="POST">
         <div class="form-group">
           <label for="name" data-i18n="form_name">姓名</label>
-          <input type="text" id="name" required placeholder="Your Name">
+          <input type="text" id="name" name="name" required placeholder="Your Name">
         </div>
 
         <div class="form-group">
-          <label for="contact" data-i18n="form_contact">联系方式 (微信/Email/WhatsApp)</label>
-          <input type="text" id="contact" required placeholder="WeChat ID / Email">
+          <label for="phone" data-i18n="form_phone">电话 (必填)</label>
+          <input type="tel" id="phone" name="phone" required placeholder="Phone Number">
+        </div>
+
+        <div class="form-group">
+          <label for="contact" data-i18n="form_contact">其他联系方式 (微信/Email/WhatsApp - 选填)</label>
+          <input type="text" id="contact" name="contact" placeholder="WeChat / Email (Optional)">
         </div>
 
         <div class="form-group">

@@ -47,7 +47,15 @@ const translations = {
         why_4_title: "✔ 数据驱动",
         why_4_desc: "每个决策基于真实数据，而非拍脑袋。",
         footer_title: "Ready to Fly?",
-        footer_cta: "立即预约咨询"
+        footer_cta: "立即预约咨询",
+        modal_title: "预约免费咨询",
+        modal_subtitle: "填写下方信息，我们将在 24 小时内与你联系。",
+        form_name: "姓名",
+        form_phone: "电话 (必填)",
+        form_contact: "其他联系方式 (微信/Email/WhatsApp - 选填)",
+        form_company: "公司/品牌名称",
+        form_message: "咨询内容 (选填)",
+        form_submit: "提交申请"
     },
     en: {
         nav_contact: "Contact Us",
@@ -97,7 +105,15 @@ const translations = {
         why_4_title: "✔ Data Driven",
         why_4_desc: "Every decision is based on real data, not guesswork.",
         footer_title: "Ready to Fly?",
-        footer_cta: "Book Consultation Now"
+        footer_cta: "Book Consultation Now",
+        modal_title: "Book Free Consultation",
+        modal_subtitle: "Fill in the form below, we'll contact you within 24 hours.",
+        form_name: "Name",
+        form_phone: "Phone (Required)",
+        form_contact: "Other Contact (WeChat/Email/WhatsApp - Optional)",
+        form_company: "Company Name",
+        form_message: "Message (Optional)",
+        form_submit: "Submit"
     }
 };
 
@@ -176,24 +192,61 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Form Submission (Mailto Fallback)
+    // Form Submission (Formspree with Mailto Fallback)
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+
             const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
             const contact = document.getElementById('contact').value;
             const company = document.getElementById('company').value;
             const message = document.getElementById('message').value;
 
-            const subject = `TikAvi Consultation Request - ${name}`;
-            const body = `Name: ${name}%0D%0AContact: ${contact}%0D%0ACompany: ${company}%0D%0AMessage: ${message}%0D%0A%0D%0ASent via TikAvi.com`;
+            // Helper to trigger mailto fallback
+            const triggerMailto = () => {
+                const subject = `TikAvi Consultation Request - ${name}`;
+                const body = `Name: ${name}%0D%0APhone: ${phone}%0D%0AOther Contact: ${contact}%0D%0ACompany: ${company}%0D%0AMessage: ${message}%0D%0A%0D%0ASent via TikAvi.com`;
+                window.location.href = `mailto:tikavi2048@gmail.com?subject=${subject}&body=${body}`;
+                alert("We couldn't reach the server, so we opened your email client instead. Please hit send!");
+            };
 
-            window.location.href = `mailto:tikavi2048@gmail.com?subject=${subject}&body=${body}`;
+            const formData = new FormData(contactForm);
 
-            // Optional: Show success state or close modal
-            modal.classList.remove('active');
-            alert("Thanks! Your default email client should open now. Please hit send.");
+            try {
+                // If ID is still placeholder, skip straight to fallback
+                if (contactForm.action.includes('PLACEHOLDER_ID')) {
+                    throw new Error('Formspree ID not configured');
+                }
+
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    modal.classList.remove('active');
+                    alert("Thanks! We have received your request and will contact you shortly.");
+                    contactForm.reset();
+                } else {
+                    // If service error, fallback to mailto
+                    triggerMailto();
+                }
+            } catch (error) {
+                console.log('Form submission error:', error);
+                triggerMailto();
+            } finally {
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+            }
         });
     }
 });
